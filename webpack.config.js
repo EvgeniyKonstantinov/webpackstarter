@@ -9,6 +9,7 @@ const extractCSS = require('./webpack/css.extract');
 const uglifyJs = require('./webpack/js.uglify');
 const images = require('./webpack/images');
 const cssminification = require('./webpack/css.minification');
+const fonts = require('./webpack/fonts');
 
 const PATH = {
     source: path.join(__dirname, 'app'),
@@ -37,7 +38,8 @@ const common = merge([
     },
     pug(),
     extractCSS(),
-    images()
+    images(),
+    fonts()
 ]);
 
 module.exports = function(env) {
