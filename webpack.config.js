@@ -8,6 +8,7 @@ const devserver = require('./webpack/devserver');
 const extractCSS = require('./webpack/css.extract');
 const uglifyJs = require('./webpack/js.uglify');
 const images = require('./webpack/images');
+const cssminification = require('./webpack/css.minification');
 
 const PATH = {
     source: path.join(__dirname, 'app'),
@@ -43,7 +44,8 @@ module.exports = function(env) {
     if (env === 'production') {
         return merge([ 
             common,
-            uglifyJs()
+            uglifyJs(),
+            cssminification()
         ]);
     } else {
         return merge([
